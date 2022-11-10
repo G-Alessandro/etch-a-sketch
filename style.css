@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.containerRed {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 400px;
+    border: 80px solid rgba(209, 13, 13, 0.87);
+}
+
+.divImp {
+    height: 30px;
+    width: 50px;
+}
+
+.impBtn {
+    height: 30px;
+    width: 50px;
+}
+
+.square {
+    flex: 1 1 0px;
+    /*background-color: black*/;
+    border: 1px solid black;
+}
