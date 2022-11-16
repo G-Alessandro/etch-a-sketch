@@ -1,13 +1,15 @@
 const body = document.querySelector('body');
 const container = document.createElement('div')
-const container2 = document.createElement('div')
 const containerRed = document.createElement('div');
 const containerRedTop = document.createElement('div');
 const divImp = document.createElement('input');
 const impBtn = document.createElement('button');
-let magic = "MAGIC";
-let screen = "SCREEN";
-let eas = "Etch A Sketch";
+const magic = document.createElement('div');
+const screen = document.createElement('div');
+const eas = document.createElement('div');
+const containerRedBottom = document.createElement('div');
+const knobL = document.createElement('div');
+const knobR = document.createElement('div');
 
 //Thing about container
 container.classList.add('container');
@@ -16,16 +18,32 @@ body.appendChild(container);
 //ContainerRedTop
 containerRedTop.classList.add('containerRedTop');
 container.appendChild(containerRedTop)
-containerRedTop.innerText = (magic+" "+eas+" "+screen);
+//ContainerRedTop text
+magic.classList.add('magic');
+containerRedTop.appendChild(magic)
+magic.innerText = "MAGIC";
 
+eas.classList.add('eas');
+containerRedTop.appendChild(eas);
+eas.innerText = "Etch A Sketch";
+
+screen.classList.add('screen');
+containerRedTop.appendChild(screen);
+screen.innerText = "SCREEN";
 
 //Thing about containerRed
  containerRed.classList.add('containerRed');
  container.appendChild(containerRed);
 
-//Thing about container2
-container2.classList.add('container2');
-containerRed.appendChild(container2);
+//Thing about containerRedBottom
+containerRedBottom.classList.add('containerRedBottom');
+container.appendChild(containerRedBottom);
+//Thing about knobs
+knobL.classList.add('knobL');
+containerRedBottom.appendChild(knobL);
+
+knobR.classList.add('knobR');
+containerRedBottom.appendChild(knobR);
 
 //Thing about divImp
 divImp.classList.add('divImp');
@@ -37,16 +55,16 @@ body.appendChild(impBtn);
 
 //Function to change the number of columns and rows
 function startingDiv (numDiv) {
-    container2.style.setProperty('--grid-columns',numDiv);
-    container2.style.setProperty('--grid-rows', numDiv);
+    containerRed.style.setProperty('--grid-columns',numDiv);
+    containerRed.style.setProperty('--grid-rows', numDiv);
     for (let i = 0 ; i < ( numDiv * numDiv ); i++) {
         let square = document.createElement('div');
         square.classList.add('square')
-        container2.appendChild(square);
+        containerRed.appendChild(square);
         square.addEventListener('mouseover',function (e) {
             e.target.style.backgroundColor = 'black';
         })
     }
 }
 
-startingDiv (16)
+startingDiv (100)
