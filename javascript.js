@@ -8,8 +8,6 @@ const magic = document.createElement('div');
 const screen = document.createElement('div');
 const eas = document.createElement('div');
 const containerRedBottom = document.createElement('div');
-const knobL = document.createElement('div');
-const knobR = document.createElement('div');
 
 //Thing about container
 container.classList.add('container');
@@ -38,12 +36,6 @@ screen.innerText = "SCREEN";
 //Thing about containerRedBottom
 containerRedBottom.classList.add('containerRedBottom');
 container.appendChild(containerRedBottom);
-//Thing about knobs
-knobL.classList.add('knobL');
-containerRedBottom.appendChild(knobL);
-
-knobR.classList.add('knobR');
-containerRedBottom.appendChild(knobR);
 
 //Thing about divImp
 divImp.classList.add('divImp');
