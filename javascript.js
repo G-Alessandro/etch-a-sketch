@@ -2,12 +2,14 @@ const body = document.querySelector('body');
 const container = document.createElement('div')
 const containerRed = document.createElement('div');
 const containerRedTop = document.createElement('div');
-const divImp = document.createElement('input');
-const impBtn = document.createElement('button');
 const magic = document.createElement('div');
 const screen = document.createElement('div');
 const eas = document.createElement('div');
 const containerRedBottom = document.createElement('div');
+const squareBtnContainer = document.createElement('div');
+const squareBtn16 = document.createElement('button');
+const squareBtn32 = document.createElement('button');
+const squareBtn64 = document.createElement('button');
 
 //Thing about container
 container.classList.add('container');
@@ -36,14 +38,18 @@ screen.innerText = "SCREEN";
 //Thing about containerRedBottom
 containerRedBottom.classList.add('containerRedBottom');
 container.appendChild(containerRedBottom);
-
-//Thing about divImp
-divImp.classList.add('divImp');
-body.appendChild(divImp);
-
-//Thing about impBtn
-impBtn.classList.add('impBtn');
-body.appendChild(impBtn);
+//Thing about squareBtnContainer 
+squareBtnContainer.classList.add('squareBtnContainer');
+containerRedBottom.appendChild(squareBtnContainer);
+//Thing about squareBtn16
+squareBtn16.classList.add('squareBtn16');
+squareBtnContainer.appendChild(squareBtn16);
+//Thing about squareBtn32
+squareBtn32.classList.add('squareBtn32');
+squareBtnContainer.appendChild(squareBtn32);
+//Thing about squareBtn64
+squareBtn64.classList.add('squareBtn64');
+squareBtnContainer.appendChild(squareBtn64);
 
 //Function to change the number of columns and rows
 function startingDiv (numDiv) {
@@ -59,4 +65,13 @@ function startingDiv (numDiv) {
     }
 }
 
-startingDiv (100)
+startingDiv (16)
+
+squareBtn16.addEventListener('click', startingDiv(20));
+
+squareBtn32.addEventListener('click', startingDiv(32));
+
+squareBtn64.addEventListener('click', startingDiv(64));
+
+
+

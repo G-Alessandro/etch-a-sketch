@@ -67,13 +67,7 @@ body {
     border-radius: 0px 0px 30px 30px;
 }
 
-.divImp {
+button {
     height: 30px;
-    width: 50px;
+    width: 30px;
 }
-
-.impBtn {
-    height: 30px;
-    width: 50px;
-}
-
