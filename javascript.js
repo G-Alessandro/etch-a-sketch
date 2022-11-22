@@ -10,6 +10,11 @@ const squareBtnContainer = document.createElement('div');
 const squareBtn16 = document.createElement('button');
 const squareBtn32 = document.createElement('button');
 const squareBtn64 = document.createElement('button');
+const colorBtnContainer = document.createElement('div');
+const shadeBtn = document.createElement('button');
+const randomRgbBtn = document.createElement('button');
+const eraserBtn = document.createElement('button'); 
+const resetBtn = document.createElement('button');
 
 //Thing about container
 container.classList.add('container');
@@ -19,21 +24,22 @@ body.appendChild(container);
 containerRedTop.classList.add('containerRedTop');
 container.appendChild(containerRedTop)
 //ContainerRedTop text
+//MAGIC
 magic.classList.add('magic');
 containerRedTop.appendChild(magic)
 magic.innerText = "MAGIC";
-
+//Etch A Sketch
 eas.classList.add('eas');
 containerRedTop.appendChild(eas);
 eas.innerText = "Etch A Sketch";
-
+//SCREEN
 screen.classList.add('screen');
 containerRedTop.appendChild(screen);
 screen.innerText = "SCREEN";
 
 //Thing about containerRed
- containerRed.classList.add('containerRed');
- container.appendChild(containerRed);
+containerRed.classList.add('containerRed');
+container.appendChild(containerRed);
 
 //Thing about containerRedBottom
 containerRedBottom.classList.add('containerRedBottom');
@@ -44,12 +50,59 @@ containerRedBottom.appendChild(squareBtnContainer);
 //Thing about squareBtn16
 squareBtn16.classList.add('squareBtn16');
 squareBtnContainer.appendChild(squareBtn16);
+squareBtn16.innerText = "16 X 16";
 //Thing about squareBtn32
 squareBtn32.classList.add('squareBtn32');
 squareBtnContainer.appendChild(squareBtn32);
+squareBtn32.innerText = "32 X 32";
 //Thing about squareBtn64
 squareBtn64.classList.add('squareBtn64');
 squareBtnContainer.appendChild(squareBtn64);
+squareBtn64.innerText = "64 X 64";
+//Thing about colorBtnContainer
+colorBtnContainer.classList.add('colorBtnContainer');
+containerRedBottom.appendChild(colorBtnContainer);
+//Thing about shadeBtn
+shadeBtn.classList.add('shadeBtn');
+colorBtnContainer.appendChild(shadeBtn);
+shadeBtn.innerText = "SHADE";
+//Thing about randomRbgBtm
+randomRgbBtn.classList.add('randomRgbBtm');
+colorBtnContainer.appendChild(randomRgbBtn);
+randomRgbBtn.innerText = "COLOR";
+//Thing about eraserBtm
+eraserBtn.classList.add('eraserBtm');
+colorBtnContainer.appendChild(eraserBtn);
+eraserBtn.innerText = "ERASER";
+//Thing about resetBtm
+resetBtn.classList.add('resetBtn');
+colorBtnContainer.appendChild(resetBtn);
+resetBtn.innerText = "RESET";
+
+//Shade function
+
+
+//Random color function
+function randomRgb (square) {
+    let random = Math.floor(Math.random() * 255);
+    let randomColor = rgb(random,random,random);
+    square.addEventListener('mousemove',function (e){
+        e.target.style.backgroundColor = randomColor ;
+    })
+};
+
+//Eraser function
+function eraser (square) {
+    square.addEventListener('mousemove',function (e) {
+        e.target.style.backgroundColor = rgb(202, 196, 196);
+    })
+};
+//Function to make square color black
+function mouseHoverCol (square) {
+    square.addEventListener('mousemove',function (e) {
+        e.target.style.backgroundColor = 'black';
+    })
+};
 
 //Function to change the number of columns and rows
 function startingDiv (numDiv) {
@@ -59,19 +112,25 @@ function startingDiv (numDiv) {
         let square = document.createElement('div');
         square.classList.add('square')
         containerRed.appendChild(square);
-        square.addEventListener('mouseover',function (e) {
-            e.target.style.backgroundColor = 'black';
-        })
+        mouseHoverCol(square);
+        // randomRgb(square);
     }
-}
+};
 
-startingDiv (16)
+addEventListener('load', startingDiv (16));
 
-squareBtn16.addEventListener('click', startingDiv(20));
+squareBtn16.addEventListener('click', function() {
+    startingDiv (16);
+});
 
-squareBtn32.addEventListener('click', startingDiv(32));
+squareBtn32.addEventListener('click', function() {
+    startingDiv (32);
+},true);
 
-squareBtn64.addEventListener('click', startingDiv(64));
+squareBtn64.addEventListener('click', function() {
+    startingDiv (64);
+});
 
-
-
+resetBtn.addEventListener('click',function(){
+    startingDiv (16);
+})

@@ -59,7 +59,7 @@ body {
 
 .containerRedBottom {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 700px;
     height: 100px;
@@ -67,7 +67,29 @@ body {
     border-radius: 0px 0px 30px 30px;
 }
 
+.squareBtnContainer {
+    display: flex;
+    gap: 20px;
+}
+
 button {
     height: 30px;
-    width: 30px;
+    width: 70px;
+    color: black;
+    font-weight: 900;
+    border-radius: 5px;
+    background-color: rgb(202, 196, 196);
+}
+
+.squareBtn16,.squareBtn32,.squareBtn64 {
+
+}
+
+.colorBtnContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.shadeBtn,.randomRgbBtm,.eraserBtm,.eraserBtm {
+
 }
