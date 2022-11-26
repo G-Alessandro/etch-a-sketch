@@ -80,12 +80,16 @@ colorBtnContainer.appendChild(resetBtn);
 resetBtn.innerText = "RESET";
 
 //Shade function
-
+function shade (square) {
+    const shadeColor = "rgba(" + 202 + "," + 196 + "," + 196 +"," + 0.1 + ")";
+}
 
 //Random color function
 function randomRgb (square) {
-    let random = Math.floor(Math.random() * 255);
-    let randomColor = rgb(random,random,random);
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const randomColor = "rgb(" + r + "," + g + "," + b + ")";
     square.addEventListener('mousemove',function (e){
         e.target.style.backgroundColor = randomColor ;
     })
@@ -93,12 +97,13 @@ function randomRgb (square) {
 
 //Eraser function
 function eraser (square) {
+    const eraserColor = "rgb(" + 202 + "," + 196 + "," + 196 +")";
     square.addEventListener('mousemove',function (e) {
-        e.target.style.backgroundColor = rgb(202, 196, 196);
+        e.target.style.backgroundColor = eraserColor;
     })
 };
 //Function to make square color black
-function mouseHoverCol (square) {
+function mouseHoverBlack (square) {
     square.addEventListener('mousemove',function (e) {
         e.target.style.backgroundColor = 'black';
     })
@@ -112,8 +117,9 @@ function startingDiv (numDiv) {
         let square = document.createElement('div');
         square.classList.add('square')
         containerRed.appendChild(square);
-        mouseHoverCol(square);
-        // randomRgb(square);
+        //mouseHoverBlack(square);
+        //randomRgb(square);
+        // eraser(square)
     }
 };
 
