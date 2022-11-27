@@ -16,6 +16,7 @@ const shadeBtn = document.createElement('button');
 const randomRgbBtn = document.createElement('button');
 const eraserBtn = document.createElement('button'); 
 const resetBtn = document.createElement('button');
+let squareColor = "black";
 
 //Thing about container
 container.classList.add('container');
@@ -120,17 +121,15 @@ function randomRgb (square) {
     })
 };
 
-//Eraser function
-function eraser (square) {
-    const eraserColor = "rgb(" + 202 + "," + 196 + "," + 196 +")";
-    square.addEventListener('mousemove',function (e) {
-        e.target.style.backgroundColor = eraserColor;
-    })
-};
+//function for change color
+function changeColor (colorChoice) {
+    squareColor = colorChoice ;
+}
+
 //Function to make square color black
 function mouseHoverBlack (square) {
     square.addEventListener('mousemove',function (e) {
-        e.target.style.backgroundColor = 'black';
+        e.target.style.backgroundColor = squareColor;
     })
 };
 
@@ -142,24 +141,27 @@ function startingDiv (numDiv) {
         let square = document.createElement('div');
         square.classList.add('square')
         containerRed.appendChild(square);
-        //mouseHoverBlack(square);
+        square.addEventListener('mousemove',function (e) {
+            e.target.style.backgroundColor = squareColor;
+        })
+        // mouseHoverBlack(square);
         //randomRgb(square);
-        // eraser(square)
-        shade(square)
+        //eraser(square)
+        //shade(square)
     }
 };
 
-addEventListener('load', startingDiv (16));
+startingDiv (16);
 
 squareBtn16.addEventListener('click', function() {
-    squaresDelete()
+    squaresDelete();
     startingDiv (16);
 });
 
 squareBtn32.addEventListener('click', function() {
-    squaresDelete()
+    squaresDelete();
     startingDiv (32);
-},true);
+});
 
 squareBtn64.addEventListener('click', function() {
     squaresDelete()
@@ -167,6 +169,13 @@ squareBtn64.addEventListener('click', function() {
 });
 
 resetBtn.addEventListener('click',function(){
-    squaresDelete()
-    startingDiv (16);
+});
+
+blackBtn.addEventListener('click', function(){
+    mouseHoverBlack(square)
 })
+
+eraserBtn.addEventListener('click',function () {
+    let eraserColor = "rgb(" + 202 + "," + 196 + "," + 196 +")";
+    changeColor (eraserColor)
+});
