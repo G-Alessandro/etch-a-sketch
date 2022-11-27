@@ -91,6 +91,11 @@ function squaresDelete () {
     squares.forEach((div) => div.remove());
 };
 
+//function for change color
+function changeColor (colorChoice) {
+    squareColor = colorChoice ;
+};
+
 //Shade function
 function shade (square) {
     let r = 202 ;
@@ -111,26 +116,14 @@ function shade (square) {
 };
 
 //Random color function
-function randomRgb (square) {
+function randomRgb () {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
-    const randomColor = "rgb(" + r + "," + g + "," + b + ")";
-    square.addEventListener('mousemove',function (e){
-        e.target.style.backgroundColor = randomColor ;
-    })
-};
-
-//function for change color
-function changeColor (colorChoice) {
-    squareColor = colorChoice ;
-}
-
-//Function to make square color black
-function mouseHoverBlack (square) {
-    square.addEventListener('mousemove',function (e) {
-        e.target.style.backgroundColor = squareColor;
-    })
+    return randomColor = "rgb(" + r + "," + g + "," + b + ")";
+    // square.addEventListener('mousemove',function (e){
+    //     e.target.style.backgroundColor = randomColor ;
+    // })
 };
 
 //Function to change the number of columns and rows
@@ -144,9 +137,7 @@ function startingDiv (numDiv) {
         square.addEventListener('mousemove',function (e) {
             e.target.style.backgroundColor = squareColor;
         })
-        // mouseHoverBlack(square);
         //randomRgb(square);
-        //eraser(square)
         //shade(square)
     }
 };
@@ -168,14 +159,18 @@ squareBtn64.addEventListener('click', function() {
     startingDiv (64);
 });
 
-resetBtn.addEventListener('click',function(){
-});
-
 blackBtn.addEventListener('click', function(){
-    mouseHoverBlack(square)
+    changeColor ("black");
 })
 
 eraserBtn.addEventListener('click',function () {
     let eraserColor = "rgb(" + 202 + "," + 196 + "," + 196 +")";
     changeColor (eraserColor)
+});
+
+randomRgbBtn.addEventListener('click', function() {
+    changeColor(randomRgb ())
+});
+
+resetBtn.addEventListener('click',function(){
 });
