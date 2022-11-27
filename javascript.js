@@ -11,6 +11,7 @@ const squareBtn16 = document.createElement('button');
 const squareBtn32 = document.createElement('button');
 const squareBtn64 = document.createElement('button');
 const colorBtnContainer = document.createElement('div');
+const blackBtn = document.createElement('button');
 const shadeBtn = document.createElement('button');
 const randomRgbBtn = document.createElement('button');
 const eraserBtn = document.createElement('button'); 
@@ -62,6 +63,10 @@ squareBtn64.innerText = "64 X 64";
 //Thing about colorBtnContainer
 colorBtnContainer.classList.add('colorBtnContainer');
 containerRedBottom.appendChild(colorBtnContainer);
+//Thing about blackBtn
+blackBtn.classList.add('blackBtn');
+colorBtnContainer.appendChild(blackBtn);
+blackBtn.innerText = "BLACK";
 //Thing about shadeBtn
 shadeBtn.classList.add('shadeBtn');
 colorBtnContainer.appendChild(shadeBtn);
@@ -79,10 +84,30 @@ resetBtn.classList.add('resetBtn');
 colorBtnContainer.appendChild(resetBtn);
 resetBtn.innerText = "RESET";
 
+//Square delete function
+function squaresDelete () {
+    let squares = containerRed.querySelectorAll('div');
+    squares.forEach((div) => div.remove());
+};
+
 //Shade function
 function shade (square) {
-    const shadeColor = "rgba(" + 202 + "," + 196 + "," + 196 +"," + 0.1 + ")";
-}
+    let r = 202 ;
+    let g = 196 ;
+    let b = 196 ;
+    const shadeColor = "rgb(" + r + "," + g + "," + b +")";
+    square.addEventListener('mousemove',function (e) {
+        if(shadeColor){
+        r -= (r*10)/100 ;
+        g -= (g*10)/100 ;
+        b -= (b*10)/100 ;
+        e.target.style.backgroundColor = shadeColor ;
+        }
+        else {
+            e.target.style.backgroundColor = shadeColor
+        }
+    })
+};
 
 //Random color function
 function randomRgb (square) {
@@ -120,23 +145,28 @@ function startingDiv (numDiv) {
         //mouseHoverBlack(square);
         //randomRgb(square);
         // eraser(square)
+        shade(square)
     }
 };
 
 addEventListener('load', startingDiv (16));
 
 squareBtn16.addEventListener('click', function() {
+    squaresDelete()
     startingDiv (16);
 });
 
 squareBtn32.addEventListener('click', function() {
+    squaresDelete()
     startingDiv (32);
 },true);
 
 squareBtn64.addEventListener('click', function() {
+    squaresDelete()
     startingDiv (64);
 });
 
 resetBtn.addEventListener('click',function(){
+    squaresDelete()
     startingDiv (16);
 })
