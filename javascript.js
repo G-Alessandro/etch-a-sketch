@@ -16,6 +16,7 @@ const shadeBtn = document.createElement('button');
 const randomRgbBtn = document.createElement('button');
 const eraserBtn = document.createElement('button'); 
 const resetBtn = document.createElement('button');
+let eraserColor = "rgb(" + 202 + "," + 196 + "," + 196 +")";
 let squareColor = "black";
 
 //Thing about container
@@ -85,6 +86,12 @@ resetBtn.classList.add('resetBtn');
 colorBtnContainer.appendChild(resetBtn);
 resetBtn.innerText = "RESET";
 
+//Reset function
+function reset () {
+    let squares = containerRed.querySelectorAll('div');
+    squares.forEach((div) => div.style.backgroundColor = eraserColor )
+}
+
 //Square delete function
 function squaresDelete () {
     let squares = containerRed.querySelectorAll('div');
@@ -97,17 +104,14 @@ function changeColor (colorChoice) {
 };
 
 //Shade function
-function shade (square) {
+function shade () {
     let r = 202 ;
     let g = 196 ;
     let b = 196 ;
-    const shadeColor = "rgb(" + r + "," + g + "," + b +")";
-    square.addEventListener('mousemove',function (e) {
-        r -= (r*10)/100 ;
-        g -= (g*10)/100 ;
-        b -= (b*10)/100 ;
-        e.target.style.backgroundColor = shadeColor
-    })
+    r -= (r*10)/100 ;
+    g -= (g*10)/100 ;
+    b -= (b*10)/100 ;
+    return "rgb(" + r + "," + g + "," + b +")";
 };
 
 //Random color function
@@ -158,8 +162,11 @@ blackBtn.addEventListener('click', function(){
     changeColor ("black");
 })
 
+shadeBtn.addEventListener('click', function (){
+    squareColor = "shade"
+})
+
 eraserBtn.addEventListener('click',function () {
-    let eraserColor = "rgb(" + 202 + "," + 196 + "," + 196 +")";
     changeColor (eraserColor)
 });
 
@@ -168,4 +175,5 @@ randomRgbBtn.addEventListener('click', function() {
 });
 
 resetBtn.addEventListener('click',function(){
+    reset ()
 });
