@@ -91,7 +91,7 @@ function squaresDelete () {
     squares.forEach((div) => div.remove());
 };
 
-//function for change color
+//Function for change color
 function changeColor (colorChoice) {
     squareColor = colorChoice ;
 };
@@ -103,15 +103,10 @@ function shade (square) {
     let b = 196 ;
     const shadeColor = "rgb(" + r + "," + g + "," + b +")";
     square.addEventListener('mousemove',function (e) {
-        if(shadeColor){
         r -= (r*10)/100 ;
         g -= (g*10)/100 ;
         b -= (b*10)/100 ;
-        e.target.style.backgroundColor = shadeColor ;
-        }
-        else {
-            e.target.style.backgroundColor = shadeColor
-        }
+        e.target.style.backgroundColor = shadeColor
     })
 };
 
@@ -120,10 +115,7 @@ function randomRgb () {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
-    return randomColor = "rgb(" + r + "," + g + "," + b + ")";
-    // square.addEventListener('mousemove',function (e){
-    //     e.target.style.backgroundColor = randomColor ;
-    // })
+    return "rgb(" + r + "," + g + "," + b + ")";
 };
 
 //Function to change the number of columns and rows
@@ -135,10 +127,13 @@ function startingDiv (numDiv) {
         square.classList.add('square')
         containerRed.appendChild(square);
         square.addEventListener('mousemove',function (e) {
-            e.target.style.backgroundColor = squareColor;
+            if ( squareColor === "random" ){
+                e.target.style.backgroundColor = randomRgb();
+            }
+            else {
+                e.target.style.backgroundColor = squareColor;
+            }
         })
-        //randomRgb(square);
-        //shade(square)
     }
 };
 
@@ -169,7 +164,7 @@ eraserBtn.addEventListener('click',function () {
 });
 
 randomRgbBtn.addEventListener('click', function() {
-    changeColor(randomRgb ())
+    changeColor ("random")
 });
 
 resetBtn.addEventListener('click',function(){
