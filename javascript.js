@@ -98,11 +98,6 @@ function squaresDelete () {
     squares.forEach((div) => div.remove());
 };
 
-//Function for change color
-function changeColor (colorChoice) {
-    squareColor = colorChoice ;
-};
-
 //Shade function
 function shade () {
     let r = 202 ;
@@ -134,6 +129,9 @@ function startingDiv (numDiv) {
             if ( squareColor === "random" ){
                 e.target.style.backgroundColor = randomRgb();
             }
+            if ( squareColor === "shade") {
+                e.target.style.backgroundColor = shade ();
+            }
             else {
                 e.target.style.backgroundColor = squareColor;
             }
@@ -159,19 +157,19 @@ squareBtn64.addEventListener('click', function() {
 });
 
 blackBtn.addEventListener('click', function(){
-    changeColor ("black");
+    squareColor = "black";
 })
 
 shadeBtn.addEventListener('click', function (){
-    squareColor = "shade"
+    squareColor = "shade";
 })
 
 eraserBtn.addEventListener('click',function () {
-    changeColor (eraserColor)
+    squareColor = eraserColor
 });
 
 randomRgbBtn.addEventListener('click', function() {
-    changeColor ("random")
+    squareColor = "random";
 });
 
 resetBtn.addEventListener('click',function(){
