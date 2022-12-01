@@ -123,9 +123,9 @@ function startingDiv (numDiv) {
     containerRed.style.setProperty('--grid-rows', numDiv);
     for (let i = 0 ; i < ( numDiv * numDiv ); i++) {
         let square = document.createElement('div');
-        square.classList.add('square')
+        square.classList.add('square');
         containerRed.appendChild(square);
-        square.addEventListener('mousemove',function (e) {
+        square.addEventListener('mouseover',function (e) {
             if ( squareColor === "random" ){
                 e.target.style.backgroundColor = randomRgb();
             }
