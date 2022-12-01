@@ -118,7 +118,7 @@ function randomRgb () {
 };
 
 //Function to change the number of columns and rows
-function startingDiv (numDiv) {
+function gridSize (numDiv) {
     containerRed.style.setProperty('--grid-columns',numDiv);
     containerRed.style.setProperty('--grid-rows', numDiv);
     for (let i = 0 ; i < ( numDiv * numDiv ); i++) {
@@ -130,7 +130,7 @@ function startingDiv (numDiv) {
                 e.target.style.backgroundColor = randomRgb();
             }
             if ( squareColor === "shade") {
-                e.target.style.backgroundColor = shade ();
+                e.target.style.backgroundColor = shade();
             }
             else {
                 e.target.style.backgroundColor = squareColor;
@@ -139,21 +139,21 @@ function startingDiv (numDiv) {
     }
 };
 
-startingDiv (16);
+gridSize (16);
 
 squareBtn16.addEventListener('click', function() {
     squaresDelete();
-    startingDiv (16);
+    gridSize (16);
 });
 
 squareBtn32.addEventListener('click', function() {
     squaresDelete();
-    startingDiv (32);
+    gridSize (32);
 });
 
 squareBtn64.addEventListener('click', function() {
     squaresDelete()
-    startingDiv (64);
+    gridSize (64);
 });
 
 blackBtn.addEventListener('click', function(){
