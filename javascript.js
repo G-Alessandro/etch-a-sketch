@@ -2,6 +2,8 @@ const body = document.querySelector('body');
 const container = document.createElement('div')
 const containerRed = document.createElement('div');
 const containerRedTop = document.createElement('div');
+const containerRedTopText = document.createElement('div');
+const containerRedTopShadow = document.createElement('div');
 const magic = document.createElement('div');
 const screen = document.createElement('div');
 const eas = document.createElement('div');
@@ -26,19 +28,25 @@ body.appendChild(container);
 //ContainerRedTop
 containerRedTop.classList.add('containerRedTop');
 container.appendChild(containerRedTop)
-//ContainerRedTop text
+//ContainerRedTopText
+containerRedTopText.classList.add('containerRedTopText');
+containerRedTop.appendChild(containerRedTopText)
 //MAGIC
 magic.classList.add('magic');
-containerRedTop.appendChild(magic)
+containerRedTopText.appendChild(magic)
 magic.innerText = "MAGIC";
 //Etch A Sketch
 eas.classList.add('eas');
-containerRedTop.appendChild(eas);
+containerRedTopText.appendChild(eas);
 eas.innerText = "Etch A Sketch";
 //SCREEN
 screen.classList.add('screen');
-containerRedTop.appendChild(screen);
+containerRedTopText.appendChild(screen);
 screen.innerText = "SCREEN";
+
+//Thing about containerRedTopShadow
+containerRedTopShadow.classList.add('containerRedTopShadow');
+containerRedTop.appendChild(containerRedTopShadow);
 
 //Thing about containerRed
 containerRed.classList.add('containerRed');
@@ -100,13 +108,16 @@ function squaresDelete () {
 
 //Shade function
 function shade () {
-    let r = 202 ;
-    let g = 196 ;
-    let b = 196 ;
-    r -= (r*10)/100 ;
-    g -= (g*10)/100 ;
-    b -= (b*10)/100 ;
-    return "rgb(" + r + "," + g + "," + b +")";
+    for ( let i = 10 ; i > 0 ; i--) {
+        let r = 202 ;
+        let g = 196 ;
+        let b = 196 ;    
+        r -= (r*10)/100 ;
+        g -= (g*10)/100 ;
+        b -= (b*10)/100 ;
+        console.log(r ,g , b)
+        return "rgb(" + r + "," + g + "," + b +")";
+    }
 };
 
 //Random color function

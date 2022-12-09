@@ -25,29 +25,41 @@ body {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
-    /* box-shadow: 10px 0px 0px rgb(153, 3, 3); */
 }
 
 .square {
     background-color: rgb(202, 196, 196);
-    /* border: 1px solid white; */
 }
 
 .containerRedTop {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     color: gold;
     width: 700px;
     height: 100px;
-    background-color: rgb(197, 5, 5);;
+    background-color: rgb(197, 5, 5);
     border-radius: 30px 30px 0px 0px;
-    /* box-shadow: 10px 0px 0px rgb(153, 3, 3); */
+}
+
+.containerRedTopText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 650px;
+    height: 95px;
+    background-color: rgb(197, 5, 5);
+}
+
+.magic,.screen,.eas {
+    font-family: sans-serif;
+    text-shadow: 0px 2px rgb(200, 155, 0);
 }
 
 .magic,.screen {
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 35px;
+    font-weight: 900;
 }
 .magic {
     margin-right: 20px;
@@ -56,8 +68,14 @@ body {
     margin-left: 20px;
 }
 .eas {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
+}
+
+.containerRedTopShadow {
+    width: 500px;
+    height: 10px;
+    background-color: rgb(153, 3, 3);
 }
 
 .containerRedBottom {
