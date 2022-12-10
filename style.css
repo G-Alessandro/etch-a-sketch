@@ -17,12 +17,13 @@ body {
 }
 
 .containerRed {
+    display: grid;
     width: 500px;
     height: 500px;
+    background-color: rgb(202, 196, 196);
     border-width: 0px 100px 0px 100px;
     border-color:rgb(197, 5, 5);
     border-style: solid;
-    display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
 }

@@ -107,23 +107,23 @@ function squaresDelete () {
 };
 
 //Shade function
-function shade () {
-    let r = 202 ;
-    let g = 196 ;
-    let b = 196 ;
-        r -= (r*10)/100 ;
-        g -= (g*10)/100 ;
-        b -= (b*10)/100 ;
-        console.log(r ,g , b)
-        return "rgb(" + r + "," + g + "," + b +")";
+function shade (e) {
+    const currentOpacity = e.target.style.opacity;
+    e.target.style.backgroundColor = 'black';
+    if (currentOpacity) {
+        e.target.style.opacity = Number(currentOpacity) + .1;
+    }
+    else {
+        e.target.style.opacity = .1 ;
+    }
 };
 
 //Random color function
-function randomRgb () {
+function randomRgb (e) {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
-    return "rgb(" + r + "," + g + "," + b + ")";
+    e.target.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 };
 
 //Function to change the number of columns and rows
@@ -136,10 +136,10 @@ function gridSize (numDiv) {
         containerRed.appendChild(square);
         square.addEventListener('mouseover',function (e) {
             if ( squareColor === "random" ){
-                e.target.style.backgroundColor = randomRgb();
+                randomRgb (e)
             }
             if ( squareColor === "shade") {
-                e.target.style.backgroundColor = shade();
+                shade(e)
             }
             else {
                 e.target.style.backgroundColor = squareColor;
