@@ -108,14 +108,9 @@ function squaresDelete () {
 
 //Shade function
 function shade (e) {
-    const currentOpacity = e.target.style.opacity;
+    const currentOpacity = Number(e.target.style.opacity);
     e.target.style.backgroundColor = 'black';
-    if (currentOpacity) {
-        e.target.style.opacity = Number(currentOpacity) + .1;
-    }
-    else {
-        e.target.style.opacity = .1 ;
-    }
+    e.target.style.opacity = currentOpacity + .1;
 };
 
 //Random color function
@@ -123,6 +118,7 @@ function randomRgb (e) {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
+    e.target.style.opacity = 1;
     e.target.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 };
 
