@@ -108,16 +108,14 @@ function squaresDelete () {
 
 //Shade function
 function shade () {
-    for ( let i = 10 ; i > 0 ; i--) {
-        let r = 202 ;
-        let g = 196 ;
-        let b = 196 ;    
+    let r = 202 ;
+    let g = 196 ;
+    let b = 196 ;
         r -= (r*10)/100 ;
         g -= (g*10)/100 ;
         b -= (b*10)/100 ;
         console.log(r ,g , b)
         return "rgb(" + r + "," + g + "," + b +")";
-    }
 };
 
 //Random color function
@@ -155,16 +153,19 @@ gridSize (16);
 squareBtn16.addEventListener('click', function() {
     squaresDelete();
     gridSize (16);
+    squareColor = "black";
 });
 
 squareBtn32.addEventListener('click', function() {
     squaresDelete();
     gridSize (32);
+    squareColor = "black";
 });
 
 squareBtn64.addEventListener('click', function() {
     squaresDelete()
     gridSize (64);
+    squareColor = "black";
 });
 
 blackBtn.addEventListener('click', function(){
