@@ -18,7 +18,6 @@ const shadeBtn = document.createElement('button');
 const randomRgbBtn = document.createElement('button');
 const eraserBtn = document.createElement('button'); 
 const resetBtn = document.createElement('button');
-let eraserColor = "rgb(202, 196 ,196)";
 let squareColor = "black";
 
 //Thing about container
@@ -97,7 +96,7 @@ resetBtn.innerText = "RESET";
 //Reset function
 function reset () {
     let squares = containerRed.querySelectorAll('div');
-    squares.forEach((div) => div.style.backgroundColor = eraserColor);
+    squares.forEach((div) => div.style.backgroundColor = "rgb(202, 196, 196)");
     squares.forEach((div) => div.style.opacity = 1.0);
 }
 
@@ -106,6 +105,12 @@ function squaresDelete () {
     let squares = containerRed.querySelectorAll('div');
     squares.forEach((div) => div.remove());
 };
+
+//Black function
+function black (e) {
+    e.target.style.opacity = 1;
+    e.target.style.backgroundColor = "rgb(0, 0, 0)";
+}
 
 //Shade function
 function shade (e) {
@@ -128,6 +133,13 @@ function randomRgb (e) {
     e.target.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 };
 
+//Eraser function
+function eraserColor (e) {
+    e.target.style.opacity = 1;
+    e.target.style.backgroundColor = "rgb(202, 196, 196)";
+
+}
+
 //Function to change the number of columns and rows
 function gridSize (numDiv) {
     containerRed.style.setProperty('--grid-columns',numDiv);
@@ -137,11 +149,17 @@ function gridSize (numDiv) {
         square.classList.add('square');
         containerRed.appendChild(square);
         square.addEventListener('mouseover',function (e) {
+            if ( squareColor === "black" ) {
+                black (e)
+            }
+            if ( squareColor === "shade") {
+                shade (e)
+            }
             if ( squareColor === "random" ){
                 randomRgb (e)
             }
-            if ( squareColor === "shade") {
-                shade(e)
+            if ( squareColor === "eraserColor") {
+                eraserColor (e)
             }
             else {
                 e.target.style.backgroundColor = squareColor;
@@ -179,7 +197,7 @@ shadeBtn.addEventListener('click', function (){
 })
 
 eraserBtn.addEventListener('click',function () {
-    squareColor = eraserColor;
+    squareColor = "eraserColor";
 });
 
 randomRgbBtn.addEventListener('click', function() {
