@@ -116,8 +116,8 @@ function black (e) {
 function shade (e) {
     const currentOpacity = Number(e.target.style.opacity);
     e.target.style.backgroundColor = 'black';
-    if ( currentOpacity < 1.0 ) {
-        e.target.style.opacity = Number (currentOpacity) + .1;
+    if ( currentOpacity != 1.0 ) {
+        e.target.style.opacity = Number(currentOpacity) + .1;
     }
     else {
         e.target.style.opacity = .1;
@@ -134,7 +134,7 @@ function randomRgb (e) {
 };
 
 //Eraser function
-function eraserColor (e) {
+function eraser (e) {
     e.target.style.opacity = 1;
     e.target.style.backgroundColor = "rgb(202, 196, 196)";
 
@@ -159,7 +159,7 @@ function gridSize (numDiv) {
                 randomRgb (e)
             }
             if ( squareColor === "eraserColor") {
-                eraserColor (e)
+                eraser (e)
             }
             else {
                 e.target.style.backgroundColor = squareColor;
