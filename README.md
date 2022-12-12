@@ -12,5 +12,5 @@
 
 <h3>Background image credit :</H3>
 
-<a href="https://it.freepik.com/vettori-gratuito/sfondo-anni-60-vettore-di-disegno-del-cerchio-astratto_18883975.htm#query=60s%20background%20abstract%20circle%20design%20vector&position=0&from_view=search&track=sph
-">Background image</a>
+<a href="https://it.freepik.com/vettori-gratuito/sfondo-anni-60-vettore-di-disegno-del-cerchio-astratto_18883975.htm#query=60s%20background%20abstract%20circle%20design%20vector&position=0&from_view=search&track=sph"
+target="_blank">Background image</a>
