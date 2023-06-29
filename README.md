@@ -1,7 +1,9 @@
 # etch-a-sketch
 
 <p>Etch A Sketch game to practice whit manipulating the DOM of an HTML document with JavaScript.</p>
+
 <a href="https://g-alessandro.github.io/etch-a-sketch/">Live preview</a>
+
 <h2>Things I've learned:</h2>
 
 <ul>
